@@ -17,10 +17,30 @@ The primary objective of this project is to develop predictive models that can a
 Predicting the biological activity of chemical compounds is a crucial step in the drug discovery process, as it allows researchers to prioritize and prioritize candidate molecules for further experimental validation. AChE, a key enzyme involved in neurotransmission, has been implicated in the pathogenesis of Alzheimer's disease, making it an attractive target for therapeutic intervention. By accurately predicting the biological activity of compounds targeting AChE, we can expedite the drug discovery process, potentially leading to the development of more effective treatments for Alzheimer's disease and other neurological disorders.
 
 ## 2. Data Preprocessing <a name="data-preprocessing"></a>
-...
+Description of the ChEMBL Database:
+The ChEMBL database serves as a comprehensive repository of bioactivity data, primarily focusing on small molecules and their interactions with biological targets. It contains curated information from scientific literature, patents, and other public sources, making it invaluable for drug discovery research. The dataset includes compound-target interactions, such as binding affinities and inhibition constants, along with molecular properties and descriptors.
+
+Retrieving Data for Compounds Targeting AChE:
+Biological activity data for compounds targeting AChE were retrieved from the ChEMBL database using the chembl_webresource_client Python library. Queries were performed based on keywords such as "Acetylcholinesterase" or "AChE" as the target protein, extracting data on compound bioactivity, particularly potency measurements like IC50 values.
+
+Data Preprocessing Steps:
+Initial data retrieval from ChEMBL database.
+Handling missing values: Removing compounds with missing values for key columns like 'standard_value' and 'canonical_smiles'.
+Data deduplication: Removing duplicate compounds based on canonical smiles.
+Labeling compounds: Categorizing compounds as active, inactive, or intermediate based on their potency values.
+Saving preprocessed data to CSV files for further analysis.
 
 ## 3. Exploratory Data Analysis (EDA) <a name="eda"></a>
-...
+Calculating Lipinski Descriptors:
+Lipinski's Rule-of-Five provides guidelines for assessing the drug-likeness of compounds based on key molecular properties. These properties include molecular weight, LogP (partition coefficient), hydrogen bond donors, and acceptors. Calculating Lipinski descriptors allows filtering and prioritization of compounds with favorable pharmacokinetic profiles, essential for oral bioavailability and efficacy.
+
+Statistical Analysis and Visualization:
+EDA involves statistical analysis and visualization of compound properties, such as molecular weight (MW), LogP, number of hydrogen bond donors, and acceptors. Box plots and scatter plots are used to explore the distribution and relationship of these properties across different bioactivity classes. Statistical tests like Mann-Whitney U test are performed to assess significant differences between active and inactive compounds.
+
+Summary and Insights:
+Exploratory data analysis provides insights into the distribution of compound properties and their association with bioactivity classes. This information guides further analysis and model development for predicting compound activity against AChE, contributing to the drug discovery process.
+
+
 
 ## 4. Model Building <a name="model-building"></a>
 
